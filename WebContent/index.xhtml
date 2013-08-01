@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//PT" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+
+	<h:form id="frmGeral">
+		<p:fieldset legend="Controle de Produtos" toggleable="true">
+			<p:dataTable id="dtProdutos" value="#{produtoBean.produtos}" var="p"
+				emptyMessage="Nenhum registro encontrado."				
+				style="text-align: center; font-weight: bold;">
+				<f:facet name="header">
+					<h:outputText value="Registro de DVDs" />
+				</f:facet>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Título" />
+					</f:facet>
+					<h:outputText value="#{p.nome}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Remover" />
+					</f:facet>
+					<f:ajax event="click" render="@form"
+						listener="#{produtoBean.remove(p)}">
+						<h:commandLink value="Remover" />
+					</f:ajax>
+				</p:column>
+
+			</p:dataTable>
+		</p:fieldset>
+	</h:form>
+
+
+	<!-- 
+                                
+	teste
+	<p:megaMenu>
+		<p:submenu label="Produtos" icon="ui-icon-check">
+			<p:column>
+				
+				<p:submenu label="TV.1">
+					<p:menuitem value="TV.1.1" url="#" />
+					<p:menuitem value="TV.1.2" url="#" />
+				</p:submenu>
+				<p:submenu label="TV.2">
+					<p:menuitem value="TV.2.1" url="#" />
+					<p:menuitem value="TV.2.2" url="#" />
+					<p:menuitem value="TV.2.3" url="#" />
+				</p:submenu>
+				<p:submenu label="TV.3">
+					<p:menuitem value="TV.3.1" url="#" />
+					<p:menuitem value="TV.3.2" url="#" />
+				</p:submenu>
+			</p:column>
+			<p:column>
+				<p:submenu label="TV.4">
+					<p:menuitem value="TV.4.1" url="#" />
+					<p:menuitem value="TV.4.2" url="#" />
+				</p:submenu>
+				<p:submenu label="TV.5">
+					<p:menuitem value="TV.5.1" url="#" />
+					<p:menuitem value="TV.5.2" url="#" />
+					<p:menuitem value="TV.5.3" url="#" />
+				</p:submenu>
+				<p:submenu label="TV.6">
+					<p:menuitem value="TV.6.1" url="#" />
+					<p:menuitem value="TV.6.2" url="#" />
+					<p:menuitem value="TV.6.3" url="#" />
+				</p:submenu>
+			</p:column>
+		</p:submenu>
+
+</p:megaMenu>
+
+ -->
+</h:body>
+</html>
